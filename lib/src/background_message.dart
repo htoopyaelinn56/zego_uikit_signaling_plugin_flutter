@@ -56,7 +56,30 @@ mixin class ZegoSignalingPluginBackgroundMessageAPIImpl
       tag: 'signaling',
       subTag: 'background message, init default handler',
     );
-    // ZPNs.setBackgroundMessageHandler(onSignalingBackgroundMessageReceived);
+    setBackgroundMessageHandler((message) async {
+      onSignalingBackgroundMessageReceived(ZPNsMessage(pushSourceType: () {
+        switch (message.pushSourceType) {
+          case ZegoSignalingPluginPushSourceType.apns:
+            return ZPNsPushSourceType.APNs;
+          case ZegoSignalingPluginPushSourceType.zego:
+            return ZPNsPushSourceType.ZEGO;
+          case ZegoSignalingPluginPushSourceType.fcm:
+            return ZPNsPushSourceType.FCM;
+          case ZegoSignalingPluginPushSourceType.huaWei:
+            return ZPNsPushSourceType.HuaWei;
+          case ZegoSignalingPluginPushSourceType.xiaoMi:
+            return ZPNsPushSourceType.XiaoMi;
+          case ZegoSignalingPluginPushSourceType.oppo:
+            return ZPNsPushSourceType.Oppo;
+          case ZegoSignalingPluginPushSourceType.vivo:
+            return ZPNsPushSourceType.Vivo;
+        }
+      }())
+        ..title = message.title
+        ..content = message.content
+        ..payload = message.payload
+        ..extras = message.extras);
+    });
   }
 
   @override
