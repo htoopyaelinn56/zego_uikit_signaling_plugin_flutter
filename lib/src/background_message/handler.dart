@@ -22,9 +22,7 @@ ZegoSignalingPluginMessage _convertZPNsMessageToZegoMessage(
     pushSourceType: _convertPushSourceType(zpnsMessage.pushSourceType),
   )
     ..title = zpnsMessage.title
-    ..content = zpnsMessage.content
-    ..payload = zpnsMessage.payload
-    ..extras = zpnsMessage.extras;
+    ..content = zpnsMessage.content;
 }
 
 /// Convert ZPNsPushSourceType to ZegoSignalingPluginPushSourceType
