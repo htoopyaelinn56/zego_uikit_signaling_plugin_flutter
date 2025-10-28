@@ -68,14 +68,14 @@ mixin class ZegoSignalingPluginNotificationAPIImpl
       zpnsConfig.appType = certificateIndex.id;
       await ZPNs.setPushConfig(zpnsConfig);
 
-      var iOSEnvironment = ZPNsIOSEnvironment.Automatic;
+      ZPNsIOSEnvironment? iOSEnvironment;
       if (null != isIOSSandboxEnvironment) {
         iOSEnvironment = isIOSSandboxEnvironment
             ? ZPNsIOSEnvironment.Development
             : ZPNsIOSEnvironment.Production;
       }
       await ZPNs.getInstance().registerPush(
-        iOSEnvironment: iOSEnvironment,
+        iOSEnvironment: iOSEnvironment ?? ZPNsIOSEnvironment.Production,
         enableIOSVoIP: enableIOSVoIP,
       );
       ZegoSignalingLoggerService.logInfo(
