@@ -196,10 +196,10 @@ mixin class ZegoSignalingPluginBackgroundMessageAPIImpl
     }
 
     // Convert our handler type to the expected ZPNsEventHandler type
-    ZPNsEventHandler.onThroughMessageReceived = handler != null
-        ? (ZPNsMessage message) =>
-            handler(_convertZPNsMessageToZegoMessage(message))
-        : null;
+    // ZPNsEventHandler.onThroughMessageReceived = handler != null
+    //     ? (ZPNsMessage message) =>
+    //         handler(_convertZPNsMessageToZegoMessage(message))
+    //     : null;
 
     return const ZegoSignalingPluginSetMessageHandlerResult();
   }
