@@ -56,7 +56,7 @@ mixin class ZegoSignalingPluginBackgroundMessageAPIImpl
       tag: 'signaling',
       subTag: 'background message, init default handler',
     );
-    ZPNs.setBackgroundMessageHandler(onSignalingBackgroundMessageReceived);
+    // ZPNs.setBackgroundMessageHandler(onSignalingBackgroundMessageReceived);
   }
 
   @override
