@@ -15,9 +15,9 @@ mixin class ZegoSignalingPluginCallKitAPIImpl
     );
 
     // Convert handler type for zego_callkit
-    CallKitEventHandler.didReceiveIncomingPush = (Map extras, UUID uuid) {
-      handler(extras, (uuid as UUIDImpl).uuidString);
-    };
+    // CallKitEventHandler.didReceiveIncomingPush = (Map extras, UUID uuid) {
+    //   handler(extras, (uuid as UUIDImpl).uuidString);
+    // };
   }
 
   /// set init configuration for callkit
@@ -32,14 +32,14 @@ mixin class ZegoSignalingPluginCallKitAPIImpl
     );
 
     // Convert to zego_callkit types
-    var cxConfiguration = CXProviderConfiguration(
-      localizedName: configuration.localizedName,
-      iconTemplateImageName: configuration.iconTemplateImageName,
-      supportsVideo: configuration.supportsVideo,
-      maximumCallGroups: configuration.maximumCallGroups,
-      maximumCallsPerCallGroup: configuration.maximumCallsPerCallGroup,
-    );
-    CallKit.setInitConfiguration(cxConfiguration);
+    // var cxConfiguration = CXProviderConfiguration(
+    //   localizedName: configuration.localizedName,
+    //   iconTemplateImageName: configuration.iconTemplateImageName,
+    //   supportsVideo: configuration.supportsVideo,
+    //   maximumCallGroups: configuration.maximumCallGroups,
+    //   maximumCallsPerCallGroup: configuration.maximumCallsPerCallGroup,
+    // );
+    // CallKit.setInitConfiguration(cxConfiguration);
   }
 
   /// report call end
@@ -55,29 +55,29 @@ mixin class ZegoSignalingPluginCallKitAPIImpl
     );
 
     // Convert to zego_callkit types
-    final uuidImpl = UUIDImpl(uuidString_: uuid);
-    final zegoCallEndedReason = _convertToZegoCallEndedReason(endedReason);
-    CallKit.getInstance().reportCallEnded(zegoCallEndedReason, uuidImpl);
+    // final uuidImpl = UUIDImpl(uuidString_: uuid);
+    // final zegoCallEndedReason = _convertToZegoCallEndedReason(endedReason);
+    // CallKit.getInstance().reportCallEnded(zegoCallEndedReason, uuidImpl);
   }
 
   /// Convert ZegoSignalingPluginCXCallEndedReason to CXCallEndedReason
-  CXCallEndedReason _convertToZegoCallEndedReason(
-      ZegoSignalingPluginCXCallEndedReason reason) {
-    switch (reason) {
-      case ZegoSignalingPluginCXCallEndedReason.callEndedReasonFailed:
-        return CXCallEndedReason.CXCallEndedReasonFailed;
-      case ZegoSignalingPluginCXCallEndedReason.callEndedReasonRemoteEnded:
-        return CXCallEndedReason.CXCallEndedReasonRemoteEnded;
-      case ZegoSignalingPluginCXCallEndedReason.callEndedReasonUnanswered:
-        return CXCallEndedReason.CXCallEndedReasonUnanswered;
-      case ZegoSignalingPluginCXCallEndedReason
-            .callEndedReasonAnsweredElsewhere:
-        return CXCallEndedReason.CXCallEndedReasonAnsweredElsewhere;
-      case ZegoSignalingPluginCXCallEndedReason
-            .callEndedReasonDeclinedElsewhere:
-        return CXCallEndedReason.CXCallEndedReasonDeclinedElsewhere;
-    }
-  }
+  // CXCallEndedReason _convertToZegoCallEndedReason(
+  //     ZegoSignalingPluginCXCallEndedReason reason) {
+  //   switch (reason) {
+  //     case ZegoSignalingPluginCXCallEndedReason.callEndedReasonFailed:
+  //       return CXCallEndedReason.CXCallEndedReasonFailed;
+  //     case ZegoSignalingPluginCXCallEndedReason.callEndedReasonRemoteEnded:
+  //       return CXCallEndedReason.CXCallEndedReasonRemoteEnded;
+  //     case ZegoSignalingPluginCXCallEndedReason.callEndedReasonUnanswered:
+  //       return CXCallEndedReason.CXCallEndedReasonUnanswered;
+  //     case ZegoSignalingPluginCXCallEndedReason
+  //           .callEndedReasonAnsweredElsewhere:
+  //       return CXCallEndedReason.CXCallEndedReasonAnsweredElsewhere;
+  //     case ZegoSignalingPluginCXCallEndedReason
+  //           .callEndedReasonDeclinedElsewhere:
+  //       return CXCallEndedReason.CXCallEndedReasonDeclinedElsewhere;
+  //   }
+  // }
 }
 
 /// @nodoc

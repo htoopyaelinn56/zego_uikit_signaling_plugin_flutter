@@ -2,7 +2,6 @@
 import 'dart:async';
 
 // Package imports:
-import 'package:zego_callkit/zego_callkit.dart';
 import 'package:zego_plugin_adapter/zego_plugin_adapter.dart';
 import 'package:zego_zim/zego_zim.dart';
 import 'package:zego_zpns/zego_zpns.dart';
@@ -12,8 +11,6 @@ import 'package:zego_uikit_signaling_plugin/src/internal/core.dart';
 import 'package:zego_uikit_signaling_plugin/src/internal/zim_extension.dart';
 import 'package:zego_uikit_signaling_plugin/src/log/logger_service.dart';
 
-import 'package:zego_uikit_signaling_plugin/src/callkit_adapter/index.dart'
-    as adapter;
 
 part 'event_native_style.dart';
 
@@ -892,133 +889,133 @@ class ZegoSignalingPluginEventCenter {
 
   /// listen zpns calkit event
   void _zpnsCallKitEvent() {
-    CallKitEventHandler.providerDidReset = () {
-      ZegoSignalingLoggerService.logInfo(
-        'providerDidReset',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      callkitProviderDidResetEvent.add(ZegoSignalingPluginCallKitVoidEvent());
-    };
-    CallKitEventHandler.providerDidBegin = () {
-      ZegoSignalingLoggerService.logInfo(
-        'providerDidBegin',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      callkitProviderDidBeginEvent.add(ZegoSignalingPluginCallKitVoidEvent());
-    };
-    CallKitEventHandler.didActivateAudioSession = () {
-      ZegoSignalingLoggerService.logInfo(
-        'didActivateAudioSession',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      callkitActivateAudioEvent.add(ZegoSignalingPluginCallKitVoidEvent());
-    };
-    CallKitEventHandler.didDeactivateAudioSession = () {
-      ZegoSignalingLoggerService.logInfo(
-        'didDeactivateAudioSession',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      callkitDeactivateAudioEvent.add(ZegoSignalingPluginCallKitVoidEvent());
-    };
-    CallKitEventHandler.timedOutPerformingAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'timedOutPerformingAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertTimedOutAction(action);
-      callkitTimedOutPerformingActionEvent.add(event);
-    };
-    CallKitEventHandler.performStartCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performStartCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertStartCallAction(action);
-      callkitPerformStartCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performAnswerCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performAnswerCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertAnswerCallAction(action);
-      callkitPerformAnswerCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performEndCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performEndCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event =
-          adapter.ZegoSignalingPluginCallKitEventConverter.convertEndCallAction(
-              action);
-      callkitPerformEndCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performSetHeldCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performSetHeldCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event =
-          adapter.ZegoSignalingPluginCallKitEventConverter.convertSetHeldAction(
-              action);
-      callkitPerformSetHeldCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performSetMutedCallAction =
-        (CXSetMutedCallAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performSetMutedCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertSetMutedAction(action);
-      callkitPerformSetMutedCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performSetGroupCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performSetGroupCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertSetGroupAction(action);
-      callkitPerformSetGroupCallActionEvent.add(event);
-    };
-    CallKitEventHandler.performPlayDTMFCallAction = (CXAction action) {
-      ZegoSignalingLoggerService.logInfo(
-        'performPlayDTMFCallAction',
-        tag: 'signaling',
-        subTag: 'event center zpns',
-      );
-
-      final event = adapter.ZegoSignalingPluginCallKitEventConverter
-          .convertPlayDTMFAction(action);
-      callkitPerformPlayDTMFCallActionEvent.add(event);
-    };
+    // CallKitEventHandler.providerDidReset = () {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'providerDidReset',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   callkitProviderDidResetEvent.add(ZegoSignalingPluginCallKitVoidEvent());
+    // };
+    // CallKitEventHandler.providerDidBegin = () {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'providerDidBegin',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   callkitProviderDidBeginEvent.add(ZegoSignalingPluginCallKitVoidEvent());
+    // };
+    // CallKitEventHandler.didActivateAudioSession = () {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'didActivateAudioSession',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   callkitActivateAudioEvent.add(ZegoSignalingPluginCallKitVoidEvent());
+    // };
+    // CallKitEventHandler.didDeactivateAudioSession = () {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'didDeactivateAudioSession',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   callkitDeactivateAudioEvent.add(ZegoSignalingPluginCallKitVoidEvent());
+    // };
+    // CallKitEventHandler.timedOutPerformingAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'timedOutPerformingAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertTimedOutAction(action);
+    //   callkitTimedOutPerformingActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performStartCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performStartCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertStartCallAction(action);
+    //   callkitPerformStartCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performAnswerCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performAnswerCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertAnswerCallAction(action);
+    //   callkitPerformAnswerCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performEndCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performEndCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event =
+    //       adapter.ZegoSignalingPluginCallKitEventConverter.convertEndCallAction(
+    //           action);
+    //   callkitPerformEndCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performSetHeldCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performSetHeldCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event =
+    //       adapter.ZegoSignalingPluginCallKitEventConverter.convertSetHeldAction(
+    //           action);
+    //   callkitPerformSetHeldCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performSetMutedCallAction =
+    //     (CXSetMutedCallAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performSetMutedCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertSetMutedAction(action);
+    //   callkitPerformSetMutedCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performSetGroupCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performSetGroupCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertSetGroupAction(action);
+    //   callkitPerformSetGroupCallActionEvent.add(event);
+    // };
+    // CallKitEventHandler.performPlayDTMFCallAction = (CXAction action) {
+    //   ZegoSignalingLoggerService.logInfo(
+    //     'performPlayDTMFCallAction',
+    //     tag: 'signaling',
+    //     subTag: 'event center zpns',
+    //   );
+    //
+    //   final event = adapter.ZegoSignalingPluginCallKitEventConverter
+    //       .convertPlayDTMFAction(action);
+    //   callkitPerformPlayDTMFCallActionEvent.add(event);
+    // };
   }
 
   ZegoSignalingPluginInvitationMode fromZIMInvitationMode(

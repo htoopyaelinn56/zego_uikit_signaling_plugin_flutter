@@ -50,14 +50,6 @@ ZegoSignalingPluginPushSourceType _convertPushSourceType(
 
 @pragma('vm:entry-point')
 Future<void> onSignalingBackgroundMessageReceived(ZPNsMessage message) async {
-  debugPrint('signaling, '
-      'background message handler,'
-      'onSignalingBackgroundMessageReceived, '
-      'title:${message.title}, '
-      'content:${message.content}, '
-      'payload:${message.payload}, '
-      'extras:${message.extras}, '
-      'pushSourceType:${message.pushSourceType}, ');
 
   await invokeBackgroundMessageHandler(message);
 }
